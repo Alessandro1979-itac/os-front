@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { UntypedFormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Tecnico } from 'src/app/models/tecnico';
 import { TecnicoService } from 'src/app/services/tecnico.service';
@@ -19,9 +19,9 @@ export class TecnicoUpdateComponent implements OnInit {
     telefone: ''
   }
 
-  nome = new FormControl('', [Validators.minLength(5)]);
-  cpf = new FormControl('', [Validators.minLength(11)]);
-  telefone = new FormControl('', [Validators.minLength(11)]);
+  nome = new UntypedFormControl('', [Validators.minLength(5)]);
+  cpf = new UntypedFormControl('', [Validators.minLength(11)]);
+  telefone = new UntypedFormControl('', [Validators.minLength(11)]);
 
   constructor(
     private router: Router,
