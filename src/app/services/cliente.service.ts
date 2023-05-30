@@ -2,50 +2,44 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
+
+import { API_CONFIG } from '../config/api.config';
 import { Cliente } from '../models/cliente';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ClienteService {
-
-  baseUrl: String = environment.baseUrl;
-
-  constructor(
-    private http: HttpClient,
-    private snack: MatSnackBar) { }
+  constructor(private http: HttpClient, private snack: MatSnackBar) {}
 
   findAll(): Observable<Cliente[]> {
-    const url = this.baseUrl + "/clientes";
-    return this.http.get<Cliente[]>(url);
+    return this.http.get<Cliente[]>(`${API_CONFIG.baseUrl}/clientes`);
   }
 
   findById(id: any): Observable<Cliente> {
-    const url = this.baseUrl + "/clientes/" + id;
-    return this.http.get<Cliente>(url);
+    return this.http.get<Cliente>(`${API_CONFIG.baseUrl}/clientes/${id}`);
   }
 
   create(cliente: Cliente): Observable<Cliente> {
-    const url = this.baseUrl + "/clientes";
-    return this.http.post<Cliente>(url, cliente);
+    return this.http.post<Cliente>(`${API_CONFIG.baseUrl}/clientes`, cliente);
   }
 
   update(cliente: Cliente): Observable<Cliente> {
-    const url = this.baseUrl + "/clientes/" + cliente.id;
-    return this.http.put<Cliente>(url, cliente);
+    return this.http.put<Cliente>(
+      `${API_CONFIG.baseUrl}/clientes/${cliente.id}`,
+      cliente
+    );
   }
 
-  delete(id: any): Observable<void> {
-    const url = `${this.baseUrl}/clientes/${id}`;
-    return this.http.delete<void>(url);
+  delete(id: any): Observable<Cliente> {
+    return this.http.delete<Cliente>(`${API_CONFIG.baseUrl}/clientes/${id}`);
   }
 
-  message(msg: String): void {
+  message(msg: string): void {
     this.snack.open(`${msg}`, 'OK', {
       horizontalPosition: 'end',
       verticalPosition: 'top',
-      duration: 4000
+      duration: 4000,
     });
   }
 }

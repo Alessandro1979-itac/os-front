@@ -2,56 +2,44 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
+
+import { API_CONFIG } from '../config/api.config';
 import { Tecnico } from '../models/tecnico';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TecnicoService {
-
-  baseUrl: String = environment.baseUrl;
-
-  constructor(
-    private http: HttpClient,
-    private snack: MatSnackBar
-  ) { }
+  constructor(private http: HttpClient, private snack: MatSnackBar) {}
 
   findAll(): Observable<Tecnico[]> {
-    const url = this.baseUrl + "/tecnicos";
-
-    return this.http.get<Tecnico[]>(url);
+    return this.http.get<Tecnico[]>(`${API_CONFIG.baseUrl}/tecnicos`);
   }
 
   findById(id: any): Observable<Tecnico> {
-    const url = `${this.baseUrl}/tecnicos/${id}`;
-
-    return this.http.get<Tecnico>(url);
+    return this.http.get<Tecnico>(`${API_CONFIG.baseUrl}/tecnicos/${id}`);
   }
 
   create(tecnico: Tecnico): Observable<Tecnico> {
-    const url = this.baseUrl + "/tecnicos";
-
-    return this.http.post<Tecnico>(url, tecnico);
+    return this.http.post<Tecnico>(`${API_CONFIG.baseUrl}/tecnicos`, tecnico);
   }
 
   update(tecnico: Tecnico): Observable<Tecnico> {
-    const url = `${this.baseUrl}/tecnicos/${tecnico.id}`;
-
-    return this.http.put<Tecnico>(url, tecnico);
+    return this.http.put<Tecnico>(
+      `${API_CONFIG.baseUrl}/tecnicos/${tecnico.id}`,
+      tecnico
+    );
   }
 
-  delete(id: any): Observable<void> {
-    const url = `${this.baseUrl}/tecnicos/${id}`;
-
-    return this.http.delete<void>(url);
+  delete(id: any): Observable<Tecnico> {
+    return this.http.delete<Tecnico>(`${API_CONFIG.baseUrl}/tecnicos/${id}`);
   }
 
-  message(msg: String): void {
+  message(msg: string): void {
     this.snack.open(`${msg}`, 'OK', {
       horizontalPosition: 'end',
       verticalPosition: 'top',
-      duration: 4000
+      duration: 4000,
     });
   }
 }
