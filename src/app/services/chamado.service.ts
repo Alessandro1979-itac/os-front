@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
 
 import { API_CONFIG } from '../config/api.config';
@@ -10,7 +9,7 @@ import { Chamado } from '../models/chamado';
   providedIn: 'root',
 })
 export class ChamadoService {
-  constructor(private http: HttpClient, private snack: MatSnackBar) {}
+  constructor(private http: HttpClient) {}
 
   findAll(): Observable<Chamado[]> {
     return this.http.get<Chamado[]>(`${API_CONFIG.baseUrl}/chamados`);
@@ -29,17 +28,5 @@ export class ChamadoService {
       `${API_CONFIG.baseUrl}/chamados/${chamado.id}`,
       chamado
     );
-  }
-
-  delete(id: any): Observable<Chamado> {
-    return this.http.delete<Chamado>(`${API_CONFIG.baseUrl}/chamados/${id}`);
-  }
-
-  message(msg: string): void {
-    this.snack.open(`${msg}`, 'OK', {
-      horizontalPosition: 'end',
-      verticalPosition: 'top',
-      duration: 4000,
-    });
   }
 }

@@ -1,5 +1,6 @@
 <div class="container mat-elevation-z8">
   <h1 class="full-width">Leitura de chamado</h1>
+
   <img
     class="full-width"
     src="assets/img/chamado-create.svg"
@@ -35,9 +36,7 @@
     </mat-form-field>
 
     <mat-form-field appearance="outline">
-      <mat-label
-        >PRIORIDADE ({{ retornaPrioridade(chamado.prioridade) }})</mat-label
-      >
+      <mat-label>PRIORIDADE ({{ retornaPrioridade(chamado.prioridade) }})</mat-label>
       <mat-select
         [disabled]="true"
         [(ngModel)]="chamado.prioridade"
@@ -84,8 +83,8 @@
       <mat-label>Deixe uma observação</mat-label>
       <textarea
         [disabled]="true"
-        [(ngModel)]="chamado.observacoes"
-        name="observacoes"
+        [(ngModel)]="chamado.observacao"
+        name="observacao"
         class="observacoes"
         matInput
         placeholder="Ex. trocar bateria de notebook queimada."

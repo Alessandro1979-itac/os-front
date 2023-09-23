@@ -1,5 +1,6 @@
 <div class="container mat-elevation-z8">
   <h1 class="full-width">Criando chamado</h1>
+
   <img
     class="full-width"
     src="assets/img/chamado-create.svg"
@@ -59,9 +60,9 @@
         [formControl]="tecnico"
         required
       >
-        <mat-option *ngFor="let tec of tecnicos" value="{{ tec.id }}">{{
-          tec.nome
-        }}</mat-option>
+        <mat-option *ngFor="let tec of tecnicos" value="{{ tec.id }}">
+          {{ tec.nome }}
+        </mat-option>
       </mat-select>
     </mat-form-field>
   </div>
@@ -75,9 +76,9 @@
         [formControl]="cliente"
         required
       >
-        <mat-option *ngFor="let cli of clientes" value="{{ cli.id }}">{{
-          cli.nome
-        }}</mat-option>
+        <mat-option *ngFor="let cli of clientes" value="{{ cli.id }}">
+          {{ cli.nome }}
+        </mat-option>
       </mat-select>
     </mat-form-field>
   </div>
@@ -86,9 +87,9 @@
     <mat-form-field class="full-width" appearance="outline">
       <mat-label>Deixe uma observação</mat-label>
       <textarea
-        [(ngModel)]="chamado.observacoes"
-        name="observacoes"
-        [formControl]="observacoes"
+        [(ngModel)]="chamado.observacao"
+        name="observacao"
+        [formControl]="observacao"
         required
         class="observacoes"
         matInput
@@ -106,6 +107,7 @@
   >
     Adicionar
   </button>
+
   <button
     routerLink="../"
     class="full-width mat-elevation-z4"

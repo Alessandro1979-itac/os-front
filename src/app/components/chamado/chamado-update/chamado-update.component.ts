@@ -20,7 +20,7 @@ export class ChamadoUpdateComponent implements OnInit {
     prioridade: '',
     status: '',
     titulo: '',
-    observacoes: '',
+    observacao: '',
     tecnico: '',
     cliente: '',
     nomeCliente: '',
@@ -33,7 +33,7 @@ export class ChamadoUpdateComponent implements OnInit {
   prioridade = new UntypedFormControl(null, [Validators.required]);
   status = new UntypedFormControl(null, [Validators.required]);
   titulo = new UntypedFormControl(null, [Validators.required]);
-  observacoes = new UntypedFormControl(null, [Validators.required]);
+  observacao = new UntypedFormControl(null, [Validators.required]);
   tecnico = new UntypedFormControl(null, [Validators.required]);
   cliente = new UntypedFormControl(null, [Validators.required]);
 
@@ -66,7 +66,7 @@ export class ChamadoUpdateComponent implements OnInit {
 
   update(): void {
     this.chamadoService.update(this.chamado).subscribe(
-      (resposta) => {
+      (_resposta) => {
         this.toastService.success(
           'Chamado atualizado com sucesso',
           'Atualizar chamado'
@@ -96,7 +96,7 @@ export class ChamadoUpdateComponent implements OnInit {
       this.prioridade.valid &&
       this.status.valid &&
       this.titulo.valid &&
-      this.observacoes.valid &&
+      this.observacao.valid &&
       this.tecnico.valid &&
       this.cliente.valid
     );

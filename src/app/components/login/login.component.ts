@@ -34,8 +34,7 @@ export class LoginComponent implements OnInit {
     this.authService.authenticate(this.creds).subscribe(
       (resposta) => {
         this.authService.successfulLogin(
-          resposta.headers.get('Authorization')!.substring(7)
-        );
+          resposta.headers.get('Authorization')!.substring(7));
         this.router.navigate(['']);
       },
       () => {

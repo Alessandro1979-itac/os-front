@@ -1,6 +1,11 @@
 <div class="container">
   <h1>Listando técnicos</h1>
-  <button routerLink="create()" class="mat-elevation-z8" mat-stroked-button color="accent">Novo técnico</button>
+  <button
+    routerLink="create"
+    class="mat-elevation-z8"
+    mat-stroked-button color="accent">
+    Novo técnico
+  </button>
 
   <mat-form-field appearance="standard">
     <mat-label>Filter</mat-label>
@@ -45,6 +50,10 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
 
-    <mat-paginator [pageSizeOptions]="[5, 2, 10, 20, 50, 100]" showFirstLastButtons></mat-paginator>
+    <mat-paginator
+      [pageSizeOptions]="[5, 2, 10, 20, 50, 100]"
+      showFirstLastButtons
+      aria-label="Select page of periodic elements">
+    </mat-paginator>
   </div>
 </div>

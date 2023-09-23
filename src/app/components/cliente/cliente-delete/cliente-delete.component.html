@@ -1,6 +1,7 @@
 <div class="container mat-elevation-z8">
   <form class="form">
     <h1 class="full-width">Deletar Cliente</h1>
+
     <img
       class="full-width"
       src="assets/img/tecnico-create.svg"
@@ -8,15 +9,9 @@
     />
 
     <section class="section">
-      <mat-checkbox [disabled]="true" class="margin" color="primary"
-        >Admin</mat-checkbox
-      >
-      <mat-checkbox [disabled]="true" class="margin" color="primary"
-        >Cliente</mat-checkbox
-      >
-      <mat-checkbox [disabled]="true" class="margin" color="primary"
-        >Técnico</mat-checkbox
-      >
+      <mat-checkbox [disabled]="true" class="margin" color="primary">Admin</mat-checkbox>
+      <mat-checkbox [disabled]="true" class="margin" color="primary">Cliente</mat-checkbox>
+      <mat-checkbox [disabled]="true" class="margin" color="primary">Técnico</mat-checkbox>
     </section>
 
     <mat-form-field class="full-width" appearance="legacy">
@@ -32,8 +27,12 @@
 
     <mat-form-field class="full-width" appearance="legacy">
       <mat-label>CPF</mat-label>
-      <input [(ngModel)]="cliente.cpf" name="cpf" [disabled]="true" matInput />
-      <mat-icon matSuffix>pin </mat-icon>
+      <input
+        [(ngModel)]="cliente.cpf"
+        name="cpf"
+        [disabled]="true"
+        matInput />
+      <mat-icon matSuffix>pin</mat-icon>
     </mat-form-field>
 
     <mat-form-field class="full-width" appearance="legacy">
@@ -67,6 +66,7 @@
     >
       Deletar
     </button>
+
     <button
       routerLink="../../"
       class="full-width mat-elevation-z4"

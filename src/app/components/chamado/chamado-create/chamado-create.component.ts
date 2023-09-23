@@ -20,7 +20,7 @@ export class ChamadoCreateComponent implements OnInit {
     prioridade: '',
     status: '',
     titulo: '',
-    observacoes: '',
+    observacao: '',
     tecnico: '',
     cliente: '',
     nomeCliente: '',
@@ -33,7 +33,7 @@ export class ChamadoCreateComponent implements OnInit {
   prioridade = new UntypedFormControl(null, [Validators.required]);
   status = new UntypedFormControl(null, [Validators.required]);
   titulo = new UntypedFormControl(null, [Validators.required]);
-  observacoes = new UntypedFormControl(null, [Validators.required]);
+  observacao = new UntypedFormControl(null, [Validators.required]);
   tecnico = new UntypedFormControl(null, [Validators.required]);
   cliente = new UntypedFormControl(null, [Validators.required]);
 
@@ -80,7 +80,7 @@ export class ChamadoCreateComponent implements OnInit {
       this.prioridade.valid &&
       this.status.valid &&
       this.titulo.valid &&
-      this.observacoes.valid &&
+      this.observacao.valid &&
       this.tecnico.valid &&
       this.cliente.valid
     );

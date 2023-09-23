@@ -15,7 +15,7 @@ export class ChamadoReadComponent implements OnInit {
     prioridade: '',
     status: '',
     titulo: '',
-    observacoes: '',
+    observacao: '',
     tecnico: '',
     cliente: '',
     nomeCliente: '',
